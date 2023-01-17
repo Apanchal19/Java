@@ -1,20 +1,15 @@
-import java.util.*;
-import java.math.*;
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        //storing nums index
+        Map<Integer, Integer> num_map = new HashMap<>();
+        for(int i=0;i<nums.length;i++){
+            int complement = target - nums[i];
 
-public class TwoSum {
-    public static void main(String[] args) {
-        // int i;       
-        // int n = 4;
-
-        // for(i=0; i <= n; i++);
-        //     System.out.println("*\n");
-    
-    
-    Scanner sc = new Scanner(System.in);
-    int radius = sc.nextInt();
-    // int b = sc.nextInt();
-    int area =  (int) ((Math.PI) * (radius*radius));
-    System.out.println(area);
-    
-    }
+            if(num_map.containsKey(complement)){
+                return new int[]{num_map.get(complement), i};
+            }
+            num_map.put(nums[i],i);
+        }
+        throw new IllegalArgumentException("no match found");
+   }
 }
